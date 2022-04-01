@@ -72,13 +72,15 @@ class CommonWidgets {
           controller: controller,
           keyboardType: keyboardType,
           decoration: InputDecoration(
+            fillColor: AppColors.white,
+            filled: true,
             isDense: true,
             contentPadding: EdgeInsets.symmetric(
                 vertical: getHeightRatio() * 16,
                 horizontal: getWidthRatio() * 16),
             hintText: placeHolder,
             hintStyle: TextStyle(
-              color: AppColors.borderColor,
+              color: AppColors.black.withOpacity(0.35),
               fontFamily: Assets.poppinsMedium,
               fontWeight: FontWeight.w500,
               fontSize: sizes.smallFontSize,
@@ -96,7 +98,7 @@ class CommonWidgets {
               icon,
               size: 20 * getHeightRatio(),
             ),
-            prefixIconColor: AppColors.borderColor,
+            prefixIconColor: AppColors.black.withOpacity(0.35),
           ),
         ),
       ),
@@ -119,13 +121,15 @@ class CommonWidgets {
           keyboardType: keyboardType,
           obscureText: hidePassword,
           decoration: InputDecoration(
+            fillColor: AppColors.white,
+            filled: true,
             isDense: true,
             contentPadding: EdgeInsets.symmetric(
                 vertical: getHeightRatio() * 16,
                 horizontal: getWidthRatio() * 16),
             hintText: placeHolder,
             hintStyle: TextStyle(
-              color: AppColors.borderColor,
+              color: AppColors.black.withOpacity(0.35),
               fontFamily: Assets.poppinsMedium,
               fontWeight: FontWeight.w500,
               fontSize: sizes.smallFontSize,
@@ -147,7 +151,7 @@ class CommonWidgets {
                 onTap: onClick,
                 child: Icon(
                   hidePassword ? Icons.visibility_off : Icons.visibility,
-                  color: AppColors.borderColor,
+                  color: AppColors.black.withOpacity(0.35),
                   size: 19,
                 )),
           ),
@@ -172,7 +176,7 @@ class CommonWidgets {
           text: firstText,
           style: TextStyle(
             fontFamily: Assets.poppinsRegular,
-            color: AppColors.lightGrey,
+            color: AppColors.black.withOpacity(0.60),
             fontSize: sizes.smallFontSize,
             fontWeight: FontWeight.w500,
           ),
