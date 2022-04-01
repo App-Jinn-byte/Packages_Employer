@@ -26,9 +26,7 @@ class Assets {
   static const String packagesLogo = "assets/png/packages_logo.png";
   static const String welcomeImage = "assets/png/welcome-background-image.png";
   static const String profileImage = "assets/png/Profile Photo-icon@2x.png";
-
-
-
+  
   //home screen
   static const String profileImage3 = "assets/png/photo-2@3x.png";
   static const String profileImage2 = "assets/png/photo-1@3x.png";
@@ -36,6 +34,10 @@ class Assets {
   static const String homeScreenPic1 = "assets/png/img-1@3x.png";
   static const String homeScreenPic2 = "assets/png/img@3x.png";
 
+
+=======
+  static const String authBackground = "assets/png/Login-Background-Image.png";
+  static const String authLogo = "assets/png/Sign-In-Logo.png";
 
 
   //

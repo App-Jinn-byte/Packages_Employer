@@ -8,11 +8,12 @@ class SplashComponents {
     return Container(
       height: sizes.height,
       width: sizes.width,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
+      decoration: BoxDecoration(
+        image: const DecorationImage(
           image: AssetImage(Assets.splash),
           fit: BoxFit.fill,
-        )
+        ),
+        color: AppColors.lightBlack,
       ),
       child: Stack(
         alignment: Alignment.center,

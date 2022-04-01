@@ -49,6 +49,38 @@ class AppSizes {
   late double tabletExtraLargeOuterMargin;
   late double tabletSocialMediaPadding;
   late double tabletAuthCommentPadding;
+=======
+//Dynamic Font Sizes
+  double? extraSmallFontSize;
+  double? smallFontSize;
+  double? mediumFontSize;
+  double? regularFontSize;
+  double? largeFontSize;
+  double? buttonFontSize;
+  double? extraLargeFontSize;
+  double? authFontSize;
+  double? jumboFontSize;
+  double? titleFontSize;
+  double? placeHolderFontSize;
+
+//padding
+  double? smallPadding;
+  double? regularPadding;
+  double? mediumPadding;
+  double? pagePadding;
+  double? largePadding;
+  double? extraLargePadding;
+  double? largerPadding;
+
+//tablet specific padding
+  double? tabletInnerPadding;
+  double? tabletOuterPadding;
+  double? tabletPagePadding;
+  double? tabletLargeOuterMargin;
+  double? tabletExtraLargeOuterMargin;
+  double? tabletSocialMediaPadding;
+  double? tabletAuthCommentPadding;
+
 
   void initializeSize(context) {
     _screenSize = MediaQuery.of(context).size;
@@ -60,6 +92,7 @@ class AppSizes {
         (isPhone && _screenSize.width <= 360) ? _screenSize.width / 360 : 1.0;
     widthRatio = isPhone ? _screenSize.width / 360 : _screenSize.width / 900;
     heightRatio =
+
         isPhone ? _screenSize.height / 720 : _screenSize.height / 1200;
 
     // debugPrint("heightRatio: $heightRatio ");
@@ -83,6 +116,19 @@ class AppSizes {
     jumbo26FontSize = 26.0 * fontRatio;
     jumbo18FontSize = 18.0 * fontRatio;
     jumbo20FontSize = 20.0 * fontRatio;
+=======
+        isPhone! ? _screenSize!.height / 720 : _screenSize!.height / 1200;
+    extraSmallFontSize = 10.0 * fontRatio!;
+    smallFontSize = 12.0 * fontRatio!;
+    regularFontSize = 14.0 * fontRatio!;
+    mediumFontSize = 16.0 * fontRatio!;
+    placeHolderFontSize = 17.0 * fontRatio!;
+    largeFontSize = 18.0 * fontRatio!;
+    buttonFontSize = 20.0 * fontRatio!;
+    extraLargeFontSize = 26.0 * fontRatio!;
+    authFontSize = 30.0 * fontRatio!;
+    jumboFontSize = 38.0 * fontRatio!;
+    titleFontSize = 40.0 * fontRatio!;
 
     smallPadding = 4.0 * widthRatio;
     regularPadding = 8.0 * widthRatio;

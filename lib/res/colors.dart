@@ -6,6 +6,7 @@ class AppColors {
   static final Color darkBlue = HexColor.fromHex("#115599");
   static final Color lightBlack = HexColor.fromHex("#404040");
   static final Color black = HexColor.fromHex("#1C2826");
+]
   static final Color pmOpeningHourTextColor = HexColor.fromHex("#DCDCDC");
   static final Color notificationTextColor = HexColor.fromHex("#8D8D8D");
 
@@ -17,6 +18,9 @@ class AppColors {
   static const pmTextFieldBorderColor = Color.fromRGBO(7, 122, 197, 0.61);
   static const pmTextFieldBorderShadowColor = Color.fromRGBO(0, 0, 0, 0.06);
   static const pmSearchBarTextColor = Color.fromRGBO(100, 100, 100, 1);
+=======
+  static final Color borderColor = HexColor.fromHex("#DCDCDC");
+  static final Color lightGrey = HexColor.fromHex("#646464");
 
   //
 }
