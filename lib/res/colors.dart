@@ -5,6 +5,8 @@ class AppColors {
   static final Color blue = HexColor.fromHex("#077AC5");
   static final Color lightBlack = HexColor.fromHex("#404040");
   static final Color black = HexColor.fromHex("#1C2826");
+  static final Color borderColor = HexColor.fromHex("#DCDCDC");
+  static final Color lightGrey = HexColor.fromHex("#646464");
 
   //
 }

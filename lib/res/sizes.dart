@@ -20,7 +20,9 @@ class AppSizes {
   double? mediumFontSize;
   double? regularFontSize;
   double? largeFontSize;
+  double? buttonFontSize;
   double? extraLargeFontSize;
+  double? authFontSize;
   double? jumboFontSize;
   double? titleFontSize;
   double? placeHolderFontSize;
@@ -61,8 +63,10 @@ class AppSizes {
     mediumFontSize = 16.0 * fontRatio!;
     placeHolderFontSize = 17.0 * fontRatio!;
     largeFontSize = 18.0 * fontRatio!;
+    buttonFontSize = 20.0 * fontRatio!;
     extraLargeFontSize = 26.0 * fontRatio!;
-    jumboFontSize = 32.0 * fontRatio!;
+    authFontSize = 30.0 * fontRatio!;
+    jumboFontSize = 38.0 * fontRatio!;
     titleFontSize = 40.0 * fontRatio!;
 
     smallPadding = 4.0 * widthRatio!;
