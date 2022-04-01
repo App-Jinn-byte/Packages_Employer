@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:packages_mall_employer/res/assets.dart';
 import 'package:packages_mall_employer/res/colors.dart';
 import 'package:packages_mall_employer/res/res.dart';
@@ -78,7 +79,9 @@ class _LoginScreenState extends State<LoginScreen> {
               CommonWidgets.customRowButton(
                 firstText: "Don't have an account? ",
                 colorText: "Sign Up",
-                press: () {}, //signup
+                press: () {
+                  Navigator.pushNamed(context, Routes.signUpScreen);
+                },
               ),
               //
             ],
