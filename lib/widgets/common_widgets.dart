@@ -3,6 +3,7 @@ import 'package:packages_mall_employer/res/assets.dart';
 import 'package:packages_mall_employer/res/colors.dart';
 import 'package:packages_mall_employer/res/res.dart';
 
+
 class CommonWidgets {
   //text
   static Widget customText(
@@ -104,6 +105,7 @@ class CommonWidgets {
       ),
     );
   }
+
 
   static Widget customPasswordTextField(
       {required placeHolder,
@@ -224,3 +226,4 @@ class CommonWidgets {
 
   //
 }
+
