@@ -248,6 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
     required BuildContext context,
   }) {
     return AppBar(
+      automaticallyImplyLeading: false,
       toolbarHeight: sizes!.heightRatio * 60.0,
       title: Padding(
         padding: EdgeInsets.only(left: sizes!.widthRatio * 30.0),

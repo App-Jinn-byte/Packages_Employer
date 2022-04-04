@@ -49,37 +49,20 @@ class AppSizes {
   late double tabletExtraLargeOuterMargin;
   late double tabletSocialMediaPadding;
   late double tabletAuthCommentPadding;
-=======
 //Dynamic Font Sizes
-  double? extraSmallFontSize;
-  double? smallFontSize;
-  double? mediumFontSize;
-  double? regularFontSize;
-  double? largeFontSize;
+
   double? buttonFontSize;
-  double? extraLargeFontSize;
+
   double? authFontSize;
-  double? jumboFontSize;
+
   double? titleFontSize;
   double? placeHolderFontSize;
 
 //padding
-  double? smallPadding;
-  double? regularPadding;
-  double? mediumPadding;
-  double? pagePadding;
-  double? largePadding;
-  double? extraLargePadding;
-  double? largerPadding;
+
 
 //tablet specific padding
-  double? tabletInnerPadding;
-  double? tabletOuterPadding;
-  double? tabletPagePadding;
-  double? tabletLargeOuterMargin;
-  double? tabletExtraLargeOuterMargin;
-  double? tabletSocialMediaPadding;
-  double? tabletAuthCommentPadding;
+
 
 
   void initializeSize(context) {
@@ -116,7 +99,6 @@ class AppSizes {
     jumbo26FontSize = 26.0 * fontRatio;
     jumbo18FontSize = 18.0 * fontRatio;
     jumbo20FontSize = 20.0 * fontRatio;
-=======
         isPhone! ? _screenSize!.height / 720 : _screenSize!.height / 1200;
     extraSmallFontSize = 10.0 * fontRatio!;
     smallFontSize = 12.0 * fontRatio!;

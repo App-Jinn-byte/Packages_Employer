@@ -73,7 +73,10 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               //
               SizedBox(height: getHeightRatio() * 140),
-              CommonWidgets.mainButton(text: "Sign In", onPress: () {}),
+              CommonWidgets.mainButton(text: "Sign In", onPress: () {
+                Navigator.pushNamed(context, Routes.bottomTabScreen);
+
+              }),
               //
               SizedBox(height: getHeightRatio() * 25),
               CommonWidgets.customRowButton(
