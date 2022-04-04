@@ -72,6 +72,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
     return AppBar(
 
       toolbarHeight: sizes!.heightRatio * 60.0,
+      automaticallyImplyLeading: false,
       title: Padding(
         padding:  EdgeInsets.only(left: sizes!.widthRatio * 30.0),
         child: TextView.getMediumText18("Notifications", Assets.poppinsRegular,

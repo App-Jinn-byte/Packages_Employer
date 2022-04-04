@@ -37,8 +37,16 @@ class _SupportChatScreenState extends State<SupportChatScreen> {
                 endIcon: Assets.messageIcon,
                 onStartIconPress: () {},
                 onEndIconPress: () {},
-                keyboardType: TextInputType.text)
+                keyboardType: TextInputType.text),
+          Spacer(),
+        CommonWidgets.mainButton(text: "Send", onPress: (){
+          Navigator.pop(context);},
+        ),
+            SizedBox(
+              height: getHeightRatio() * 30,
+            ),
           ],
+
         ),
       ),
     );
@@ -76,6 +84,7 @@ class _SupportChatScreenState extends State<SupportChatScreen> {
               ),
               TextView.getMediumText18("Support", Assets.poppinsMedium,
                   color: AppColors.black, lines: 1),
+
             ],
           )),
       // leading: Padding(

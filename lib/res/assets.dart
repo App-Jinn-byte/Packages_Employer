@@ -35,7 +35,6 @@ class Assets {
   static const String homeScreenPic2 = "assets/png/img@3x.png";
 
 
-=======
   static const String authBackground = "assets/png/Login-Background-Image.png";
   static const String authLogo = "assets/png/Sign-In-Logo.png";
 

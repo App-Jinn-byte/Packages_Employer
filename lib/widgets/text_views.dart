@@ -422,7 +422,7 @@ class TextView {
       maxLines: lines,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
-        fontSize: sizes!.extraLargeFontSize * customFontSize,
+        fontSize: sizes!.extraLargeFontSize! * customFontSize,
         fontWeight: FontWeight.w700,
         fontFamily: fontFamily,
         color: color,

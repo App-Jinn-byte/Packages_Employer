@@ -15,15 +15,12 @@ class BottomTabScreen extends StatefulWidget {
 }
 
 class _BottomTabScreenState extends State<BottomTabScreen> {
-
   int _currentIndex = 0;
-  List <Widget>tabs = [
+  List<Widget> tabs = [
     const HomeScreen(),
     Container(),
     const NotificationScreen(),
     const ProfileScreen(),
-
-
   ];
 
   @override
@@ -33,6 +30,9 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
         child: tabs[_currentIndex],
       ),
       bottomNavigationBar: SalomonBottomBar(
+          selectedColorOpacity: 1,
+          itemShape:  RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+
           currentIndex: _currentIndex,
           onTap: (i) => setState(() => _currentIndex = i),
           items: [
@@ -55,7 +55,7 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
                   color: AppColors.white,
                 ),
               ),
-              selectedColor: AppColors.blue,
+              selectedColor: AppColors.darkBlue,
             ),
 
             /// Search
@@ -77,7 +77,7 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
                   color: AppColors.white,
                 ),
               ),
-              selectedColor: AppColors.blue,
+              selectedColor: AppColors.darkBlue,
             ),
 
             /// Notification
@@ -99,7 +99,7 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
                   color: AppColors.white,
                 ),
               ),
-              selectedColor: AppColors.blue,
+              selectedColor: AppColors.darkBlue,
             ),
 
             /// Profile
@@ -121,7 +121,7 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
                   color: AppColors.white,
                 ),
               ),
-              selectedColor: AppColors.blue,
+              selectedColor: AppColors.darkBlue,
             ),
           ]),
     );
