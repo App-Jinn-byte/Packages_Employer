@@ -31,8 +31,8 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
       ),
       bottomNavigationBar: SalomonBottomBar(
           selectedColorOpacity: 1,
-          itemShape:  RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-
+          itemShape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           currentIndex: _currentIndex,
           onTap: (i) => setState(() => _currentIndex = i),
           items: [
@@ -41,13 +41,13 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
               activeIcon: Image.asset(
                 Assets.menuHomeIcon,
                 color: AppColors.white,
-                height: sizes!.heightRatio! * 17.25,
-                width: sizes!.widthRatio! * 15.80,
+                height: sizes.heightRatio * 17.25,
+                width: sizes.widthRatio * 15.80,
               ),
               icon: Image.asset(
                 Assets.menuHomeIcon,
-                height: sizes!.heightRatio! * 17.25,
-                width: sizes!.widthRatio! * 15.80,
+                height: sizes.heightRatio * 17.25,
+                width: sizes.widthRatio * 15.80,
               ),
               title: Text(
                 "Home",
@@ -63,13 +63,13 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
               activeIcon: Image.asset(
                 Assets.menuSearchIcon,
                 color: AppColors.white,
-                height: sizes!.heightRatio! * 20.96,
-                width: sizes!.widthRatio! * 20.97,
+                height: sizes.heightRatio * 20.96,
+                width: sizes.widthRatio * 20.97,
               ),
               icon: Image.asset(
                 Assets.menuSearchIcon,
-                height: sizes!.heightRatio! * 20.96,
-                width: sizes!.widthRatio! * 20.97,
+                height: sizes.heightRatio * 20.96,
+                width: sizes.widthRatio * 20.97,
               ),
               title: Text(
                 "Search",
@@ -85,13 +85,13 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
               activeIcon: Image.asset(
                 Assets.menuNotificationIcon,
                 color: AppColors.white,
-                height: sizes!.heightRatio! * 17.41,
-                width: sizes!.widthRatio! * 20.58,
+                height: sizes.heightRatio * 17.41,
+                width: sizes.widthRatio * 20.58,
               ),
               icon: Image.asset(
                 Assets.menuNotificationIcon,
-                height: sizes!.heightRatio! * 17.41,
-                width: sizes!.widthRatio! * 20.58,
+                height: sizes.heightRatio * 17.41,
+                width: sizes.widthRatio * 20.58,
               ),
               title: Text(
                 "Notifications",
@@ -107,13 +107,13 @@ class _BottomTabScreenState extends State<BottomTabScreen> {
               activeIcon: Image.asset(
                 Assets.menuProfileIcon,
                 color: AppColors.white,
-                height: sizes!.heightRatio! * 18.04,
-                width: sizes!.widthRatio! * 16.73,
+                height: sizes.heightRatio * 18.04,
+                width: sizes.widthRatio * 16.73,
               ),
               icon: Image.asset(
                 Assets.menuProfileIcon,
-                height: sizes!.heightRatio! * 18.04,
-                width: sizes!.widthRatio! * 16.73,
+                height: sizes.heightRatio * 18.04,
+                width: sizes.widthRatio * 16.73,
               ),
               title: Text(
                 "Profile",

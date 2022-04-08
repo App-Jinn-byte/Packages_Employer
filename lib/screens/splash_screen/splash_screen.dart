@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:packages_mall_employer/res/res.dart';
-import 'package:packages_mall_employer/screens/bottom_tab_screens/bottom_tab_screen.dart';
 import 'package:packages_mall_employer/screens/splash_screen/splash_components.dart';
 import 'package:packages_mall_employer/screens/welcome_screen/welcome_screen.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -27,14 +25,12 @@ class _SplashScreenState extends State<SplashScreen> {
   _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 2000), () {});
     Navigator.of(context).pushReplacement(MaterialPageRoute(
-
-      builder: (BuildContext context) => const WelcomeScreen()));
-
-
+        builder: (BuildContext context) => const WelcomeScreen()));
   }
 
   @override
   Widget build(BuildContext context) {
+    initializeAppResources(context: context);
     return FutureBuilder(
         future: initializeAppResources(context: context),
         builder: (__, _) {
