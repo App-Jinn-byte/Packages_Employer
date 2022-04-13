@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:packages_mall_employer/animations/slide_right.dart';
 import 'package:packages_mall_employer/res/assets.dart';
 import 'package:packages_mall_employer/res/colors.dart';
 import 'package:packages_mall_employer/res/common_padding.dart';
 import 'package:packages_mall_employer/res/res.dart';
+import 'package:packages_mall_employer/res/utils.dart';
 import 'package:packages_mall_employer/routes/routes.dart';
+import 'package:packages_mall_employer/screens/auth_screens/login_screen/login_screen.dart';
 import 'package:packages_mall_employer/widgets/text_views.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -51,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               CommonPadding.sizeBoxWithHeight(height: 15.0),
               GestureDetector(
                 onTap: () {
-                 Navigator.pushNamed(context, Routes.supportChatScreen);
+                  Navigator.pushNamed(context, Routes.supportChatScreen);
                 },
                 child: customServiceContainer(
                     icon: Assets.supportChatIcon,
@@ -62,7 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               CommonPadding.sizeBoxWithHeight(height: 15.0),
               GestureDetector(
                   onTap: () async {
-                    // await logout();
+                    await logout();
                   },
                   child: customLogoutContainer(
                       icon: "assets/png/logout_icon.png", text: "Logout")),
@@ -120,7 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         height: sizes!.heightRatio * 54.0,
         width: sizes!.widthRatio * 316.0,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(6)),
+          borderRadius: const BorderRadius.all(Radius.circular(6)),
           color: AppColors.white,
           boxShadow: [
             BoxShadow(
@@ -140,8 +143,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Image.asset(
                     icon ?? Assets.menuHomeIcon,
-                    height: sizes!.heightRatio * iconHeight,
-                    width: sizes!.widthRatio * iconWidth,
+                    height: sizes.heightRatio * iconHeight,
+                    width: sizes.widthRatio * iconWidth,
                   ),
                   CommonPadding.sizeBoxWithWidth(width: 20.0),
                   TextView.getMediumText16(text, Assets.poppinsRegular,
@@ -169,13 +172,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         height: sizes!.heightRatio * 54.0,
         width: sizes!.widthRatio * 316.0,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(6)),
+          borderRadius: const BorderRadius.all(Radius.circular(6)),
           color: AppColors.white,
           boxShadow: [
             BoxShadow(
               color: AppColors.pmOpeningHourTextColor,
               blurRadius: 18,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -230,7 +233,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           BoxShadow(
             color: AppColors.pmOpeningHourTextColor,
             blurRadius: 18,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -271,12 +274,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-// Future<void> logout() async {
-//   PreferenceUtils.clearPreferences();
-//   Navigator.pushReplacement(
-//       context, SlideRightRoute(page: const LoginScreen()));
-//   // const MyApp().restartApp(context: context);
-// }
+  Future<void> logout() async {
+    PreferenceUtils.clearPreferences();
+    Navigator.pushReplacement(
+        context, SlideRightRoute(page: const LoginScreen()));
+    // const MyApp().restartApp(context: context);
+  }
 
 // Future<void> editVehicle() async {
 //   debugPrint(

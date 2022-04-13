@@ -40,7 +40,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   welcomeScreenComponents.welcomeText(),
                   SizedBox(height: getHeightRatio() * 10),
                   //
-                  Container(
+                  SizedBox(
                     width: getWidthRatio() * 250,
                     child: welcomeScreenComponents.subtitleText(),
                   ),

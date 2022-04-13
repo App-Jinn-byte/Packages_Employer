@@ -6,5 +6,7 @@ class Strings {
   static String firstName = "firstName";
   static String lastName = "lastName";
   static String email = "email";
+  static String loginUserId = "loginUserId";
   static String profilePicture = "profilePicture";
+  static String photoUrl = "photoUrl";
 }

@@ -38,6 +38,7 @@ class Assets {
   static const String authBackground = "assets/png/Login-Background-Image.png";
   static const String authLogo = "assets/png/Sign-In-Logo.png";
 
+  // loading animation
+  static const String apiLoading = "assets/json/blueSimple.json";
 
-  //
 }
