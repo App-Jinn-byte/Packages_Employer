@@ -1,10 +1,12 @@
 
 
+import 'package:packages_mall_employer/models/NewsFeedResponse.dart';
 import 'package:packages_mall_employer/models/auth_models/ForgotPasswordResponse.dart';
 import 'package:packages_mall_employer/models/auth_models/LoginResponse.dart';
 import 'package:packages_mall_employer/models/auth_models/SignUpResponse.dart';
 import 'package:packages_mall_employer/models/auth_models/UploadProfilePictureResponse.dart';
 import 'package:packages_mall_employer/models/errorResponseModel.dart';
+import 'package:packages_mall_employer/models/profile_module/ChatSupportResponse.dart';
 
 class Models {
   static const String errorModel = "errorModel";
@@ -12,6 +14,8 @@ class Models {
   static const String logInModel = "logInModel";
   static const String uploadProfilePicModel = "uploadProfilePicModel";
   static const String forgotPasswordModel = "forgotPasswordModel";
+  static const String chatSupportModel = "chatSupportModel";
+  static const String newsFeedModel = "newsFeedModel";
 
 
   static Future<dynamic> getModelObject(
@@ -27,6 +31,10 @@ class Models {
         return UploadProfilePictureResponse.fromJson(json);
       case forgotPasswordModel:
         return ForgotPasswordResponse.fromJson(json);
+      case chatSupportModel:
+        return ChatSupportResponse.fromJson(json);
+      case newsFeedModel:
+        return NewsFeedResponse.fromJson(json);
     }
   }
 //

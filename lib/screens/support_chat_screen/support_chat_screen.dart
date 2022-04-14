@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:packages_mall_employer/res/assets.dart';
 import 'package:packages_mall_employer/res/colors.dart';
+import 'package:packages_mall_employer/res/my_toasts.dart';
 import 'package:packages_mall_employer/res/res.dart';
+import 'package:packages_mall_employer/screens/support_chat_screen/support_chat_provider.dart';
 import 'package:packages_mall_employer/widgets/common_widgets.dart';
 import 'package:packages_mall_employer/widgets/text_views.dart';
+import 'package:provider/provider.dart';
 
 class SupportChatScreen extends StatefulWidget {
   const SupportChatScreen({Key? key}) : super(key: key);
@@ -13,8 +16,23 @@ class SupportChatScreen extends StatefulWidget {
 }
 
 class _SupportChatScreenState extends State<SupportChatScreen> {
+
+  late TextEditingController messageController;
+  late SupportChatProvider supportChatProvider;
+
+  @override
+  void initState() {
+    supportChatProvider=SupportChatProvider();
+    supportChatProvider=Provider.of<SupportChatProvider>(context, listen: false);
+    supportChatProvider.init(context: context);
+
+    messageController=TextEditingController();
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+    supportChatProvider=Provider.of<SupportChatProvider>(context, listen: true);
     return Scaffold(
       appBar: _customAppBar(context: context),
       body: Container(
@@ -36,10 +54,18 @@ class _SupportChatScreenState extends State<SupportChatScreen> {
                 endIcon: Assets.messageIcon,
                 onStartIconPress: () {},
                 onEndIconPress: () {},
-                keyboardType: TextInputType.text),
-          Spacer(),
+                keyboardType: TextInputType.text, controller: messageController),
+          const Spacer(),
         CommonWidgets.mainButton(text: "Send", onPress: (){
-          Navigator.pop(context);},
+
+          if(messageController.text == ''){
+            Toasts.getErrorToast(heading:  'Please state your query');
+          }else {
+            supportChatProvider.supportChatAPi(description: messageController.text);
+
+          }
+
+          },
         ),
             SizedBox(
               height: getHeightRatio() * 30,

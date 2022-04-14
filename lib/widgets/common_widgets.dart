@@ -277,7 +277,7 @@ class CommonWidgets {
               child: Center(
                 child: TextField(
                   textAlignVertical: TextAlignVertical.center,
-                  readOnly: true,
+                  // readOnly: true,
                   obscureText: false,
                   controller: controller,
                   keyboardType: keyboardType,

@@ -1,10 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:packages_mall_employer/res/assets.dart';
 import 'package:packages_mall_employer/res/colors.dart';
 import 'package:packages_mall_employer/res/common_padding.dart';
 import 'package:packages_mall_employer/res/res.dart';
+import 'package:packages_mall_employer/screens/home_screens/home_screen_components.dart';
+import 'package:packages_mall_employer/screens/home_screens/home_screen_provider.dart';
 import 'package:packages_mall_employer/widgets/text_views.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,138 +16,58 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late HomeScreenProvider homeScreenProvider;
+
+  @override
+  void initState() {
+    homeScreenProvider = HomeScreenProvider();
+    homeScreenProvider =
+        Provider.of<HomeScreenProvider>(context, listen: false);
+    homeScreenProvider.init(context: context);
+    homeScreenProvider.getNewsFeedAPi(homeScreenProvider.pageNumber);
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    homeScreenProvider = Provider.of<HomeScreenProvider>(context, listen: true);
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(
-            horizontal: getWidthRatio()*30,
-            vertical: getHeightRatio()*30
-          ),
+              horizontal: getWidthRatio() * 30,
+              vertical: getHeightRatio() * 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CommonPadding.sizeBoxWithHeight(height: 10.0),
               homeSearchBarWithDoubleIcons(
-
                   placeHolder: 'Search here',
                   endIcon: Assets.filterSearchIcon,
-                  startIcon:Assets.homeSearchIcon,
-                  onStartIconPress: (){}, keyboardType: null, onEndIconPress:(){}),
+                  startIcon: Assets.homeSearchIcon,
+                  onStartIconPress: () {},
+                  keyboardType: null,
+                  onEndIconPress: () {}),
               CommonPadding.sizeBoxWithHeight(height: 30.0),
-
-              Container(
-                child: Column(
-                  children: [
-                    Row(
-
-                      children: [
-                        Image.asset(Assets.profileImage1,
-                        width: getWidthRatio()*42,
-                        height: getHeightRatio()*42,),
-                        CommonPadding.sizeBoxWithWidth(width: 17),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("TomAlvaradoX213",
-                            style: TextStyle(
-                              fontFamily: Assets.poppinsRegular,
-
-                            ),),
-                            Text("14 Mar, 2022",
-                              style: TextStyle(
-                                fontFamily: Assets.poppinsRegular,
-                                color: AppColors.notificationTextColor
-
-                              ),),
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    CommonPadding.sizeBoxWithHeight(height: 16.0),
-                    Image.asset(Assets.homeScreenPic2),
-                    CommonPadding.sizeBoxWithHeight(height: 16.0),
-                    Text("Lorem ipsum dolor sit amet, consectetur ipsum adipiscing elit.",
-                      style: TextStyle(
-                          fontFamily: Assets.poppinsRegular,
-                          color: AppColors.pmSearchBarTextColor
-
-                      ),)
-                  ],
-                ),
-              ),
-              Divider(
-                height: 30,
-              ),
-              Row(
-
-                children: [
-                  Image.asset(Assets.profileImage3,
-                    width: getWidthRatio()*42,
-                    height: getHeightRatio()*42,),
-                  CommonPadding.sizeBoxWithWidth(width: 17),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("TomAlvaradoX213"),
-                      Text("Started Cyclename! (3/14/22)",
-
-                        style: TextStyle(
-                            fontFamily: Assets.poppinsRegular,
-                            color: AppColors.notificationTextColor
-
-                        ),),
-
-                    ],
-                  ),
-
-
-                ],
-              ),
-              Divider(
-                height: 30,
-              ),
-              Container(
-                child: Column(
-                  children: [
-                    Row(
-
-                      children: [
-                        Image.asset(Assets.profileImage2,
-                          width: getWidthRatio()*42,
-                          height: getHeightRatio()*42,),
-                        CommonPadding.sizeBoxWithWidth(width: 17),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("TomAlvaradoX213"),
-                            Text("14 Mar, 2022",
-                              style: TextStyle(
-                                  fontFamily: Assets.poppinsRegular,
-                                  color: AppColors.notificationTextColor
-
-                              ),),
-
-                          ],
-                        )
-
-                      ],
-                    ),
-                    CommonPadding.sizeBoxWithHeight(height: 16.0),
-                    Image.asset(Assets.homeScreenPic1),
-                    CommonPadding.sizeBoxWithHeight(height: 16.0),
-                    Text("Lorem ipsum dolor sit amet, consectetur ipsum adipiscing elit.",
-                      style: TextStyle(
-                          fontFamily: Assets.poppinsRegular,
-                          color: AppColors.pmSearchBarTextColor
-
-                      ),)
-                  ],
-                ),
-              ),
+              ListView.builder(
+                  shrinkWrap: true,
+                  physics: const ScrollPhysics(),
+                  itemCount: homeScreenProvider
+                      .newsFeedResponse.data?.newsFeeds?.length,
+                  itemBuilder: (context, index) {
+                    return HomeScreenComponents.newsFeedContainer(
+                        profileImage: Assets.profileImage1,
+                        name: homeScreenProvider.newsFeedResponse.data
+                                ?.newsFeeds?[index].userFullName ??
+                            'UserName',
+                        description: homeScreenProvider.newsFeedResponse.data
+                            ?.newsFeeds?[index].description ??
+                            'Description',
+                        date: homeScreenProvider.newsFeedResponse.data
+                            ?.newsFeeds?[index].createdOn ??
+                            'date');
+                  })
             ],
           ),
         ),
@@ -212,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   keyboardType: keyboardType,
                   decoration: InputDecoration(
                     hintText: placeHolder,
-                    hintStyle:  TextStyle(
+                    hintStyle: TextStyle(
                         color: AppColors.notificationTextColor,
                         fontFamily: Assets.poppinsRegular,
                         fontSize: 14),
