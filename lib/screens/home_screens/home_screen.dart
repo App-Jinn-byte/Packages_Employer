@@ -63,7 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       .newsFeedResponse.data?.newsFeeds?.length ?? 1,
                   itemBuilder: (context, index) {
                     return HomeScreenComponents.newsFeedContainer(
-                        profileImage: Assets.profileImage1,
+                        profileImage: homeScreenProvider.newsFeedResponse.data
+                            ?.newsFeeds?[index].userProfilePicPath ??
+                            'profileImage',
                         name: homeScreenProvider.newsFeedResponse.data
                                 ?.newsFeeds?[index].userFullName ??
                             'UserName',
@@ -72,7 +74,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             'Description',
                         date: homeScreenProvider.newsFeedResponse.data
                             ?.newsFeeds?[index].createdOn ??
-                            'date');
+                            'date', eventPhoto: homeScreenProvider.newsFeedResponse.data
+                        ?.newsFeeds?[index].filePath ??
+                        'event image',);
                   })
             ],
           ),
