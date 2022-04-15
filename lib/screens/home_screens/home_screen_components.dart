@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:packages_mall_employer/res/assets.dart';
 import 'package:packages_mall_employer/res/colors.dart';
 import 'package:packages_mall_employer/res/common_padding.dart';
@@ -32,7 +33,8 @@ class HomeScreenComponents {
                   ),
                 ),
                 Text(
-                  DateFormat('hh:mm a').format(DateTime.parse(
+                  // date,
+                  DateFormat('dd/MM/yyyy').format(DateTime.parse(
                     date,
                   )),
                   style: TextStyle(
