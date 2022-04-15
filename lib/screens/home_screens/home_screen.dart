@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:packages_mall_employer/res/assets.dart';
 import 'package:packages_mall_employer/res/colors.dart';
 import 'package:packages_mall_employer/res/common_padding.dart';
 import 'package:packages_mall_employer/res/res.dart';
 import 'package:packages_mall_employer/screens/home_screens/home_screen_components.dart';
 import 'package:packages_mall_employer/screens/home_screens/home_screen_provider.dart';
+import 'package:packages_mall_employer/widgets/common_widgets.dart';
 import 'package:packages_mall_employer/widgets/text_views.dart';
 import 'package:provider/provider.dart';
 
@@ -33,7 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     homeScreenProvider = Provider.of<HomeScreenProvider>(context, listen: true);
     return Scaffold(
-      body: SingleChildScrollView(
+      body: homeScreenProvider.newsFeedFetched ?
+      homeScreenProvider
+          .newsFeedResponse.data?.newsFeeds?.length != null ?
+
+      SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(
               horizontal: getWidthRatio() * 30,
@@ -54,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   shrinkWrap: true,
                   physics: const ScrollPhysics(),
                   itemCount: homeScreenProvider
-                      .newsFeedResponse.data?.newsFeeds?.length,
+                      .newsFeedResponse.data?.newsFeeds?.length ?? 1,
                   itemBuilder: (context, index) {
                     return HomeScreenComponents.newsFeedContainer(
                         profileImage: Assets.profileImage1,
@@ -71,7 +77,23 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ):
+      Center(
+        child: CommonWidgets.customText(
+          text: "News Feed is empty!",
+          lines: 2,
+          fontSize: getHeightRatio() * 20,
+          fontFamily: Assets.poppinsRegular,
+          color: AppColors.pmSearchBarTextColor, fontWeight: FontWeight.bold,
+        ),
+      ):Center(
+        child: SizedBox(
+          width: getWidthRatio() * 30,
+          child: Lottie.asset(Assets.apiLoading),
+        ),
       ),
+
+
       appBar: _customAppBar(context: context),
     );
   }
