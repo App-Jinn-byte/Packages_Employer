@@ -8,6 +8,7 @@ import 'package:packages_mall_employer/res/res.dart';
 class HomeScreenComponents {
   static Widget newsFeedContainer({
     required profileImage,
+    required eventPhoto,
     required name,
     required date,
     required description,
@@ -16,12 +17,19 @@ class HomeScreenComponents {
       children: [
         Row(
           children: [
-            Image.asset(
-              profileImage,
-              // Assets.profileImage1,
+
+            Image.network(profileImage,
               width: getWidthRatio() * 42,
-              height: getHeightRatio() * 42,
+                height: getHeightRatio() * 42,
             ),
+
+
+            // Image.asset(
+            //   profileImage,
+            //   // Assets.profileImage1,
+            //   width: getWidthRatio() * 42,
+            //   height: getHeightRatio() * 42,
+            // ),
             CommonPadding.sizeBoxWithWidth(width: 17),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +54,11 @@ class HomeScreenComponents {
           ],
         ),
         CommonPadding.sizeBoxWithHeight(height: 16.0),
-        Image.asset(Assets.homeScreenPic2),
+
+        Image.network(eventPhoto,
+
+        ),
+        // Image.asset(Assets.homeScreenPic2),
         CommonPadding.sizeBoxWithHeight(height: 16.0),
         Align(
           alignment: Alignment.topLeft,
